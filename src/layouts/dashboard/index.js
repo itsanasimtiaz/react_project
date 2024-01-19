@@ -34,10 +34,28 @@ import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
 // Dashboard components
 import Projects from "layouts/dashboard/components/Projects";
 import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
-
+import { useEffect } from "react";
+import axios from "axios";
 function Dashboard() {
   const { sales, tasks } = reportsLineChartData;
+  let Api = "https://jsonplaceholder.typicode.com/posts";
 
+  // const fetcApiData = async (url) => {
+  //   try {
+  //     const res = await fetch(url);
+  //     const data = await res.json();
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  useEffect(() => {
+    axios.get(Api).then((res) => {
+      const products = res.data;
+      console.log(products[99]);
+    });
+  }, []);
   return (
     <DashboardLayout>
       <DashboardNavbar />
