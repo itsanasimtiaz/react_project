@@ -38,7 +38,7 @@ import { useEffect } from "react";
 import axios from "axios";
 function Dashboard() {
   const { sales, tasks } = reportsLineChartData;
-  let Api = "https://jsonplaceholder.typicode.com/posts";
+  let Api = "/api/Dashboard";
 
   // const fetcApiData = async (url) => {
   //   try {
@@ -52,8 +52,8 @@ function Dashboard() {
 
   useEffect(() => {
     axios.get(Api).then((res) => {
-      const products = res.data;
-      console.log(products[99]);
+      // const products = res.data;
+      console.log(res);
     });
   }, []);
   return (
